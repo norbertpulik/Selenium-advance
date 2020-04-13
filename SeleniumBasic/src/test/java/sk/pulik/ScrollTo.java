@@ -1,8 +1,5 @@
 package sk.pulik;
 
-import java.util.Iterator;
-import java.util.List;
-
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
@@ -11,7 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class JavascriotExecutor {
+public class ScrollTo {
 
 	private WebDriver driver;
 
@@ -26,21 +23,13 @@ public class JavascriotExecutor {
 
 	@Test
 
-	public void testHighLight() {
+	public void testToScroll() {
+		WebElement lastRow = driver.findElement(By.xpath("//table//tbody//tr[5]"));
 
-		List<WebElement> rows = driver.findElements(By.xpath("//table//tbody//tr"));
+		System.out.println(lastRow.getText());
+		JavascriptExecutor js = (JavascriptExecutor) driver;
 
-		for (WebElement row : rows) {
-			if (row.getText().contains("Florian")) {
-				highLight(row);
-			}
-
-		}
+		js.executeScript("arguments[0].scrollIntoView(true)", lastRow);
 
 	}
-
-	private void highLight(WebElement row) {
-		((JavascriptExecutor) driver).executeScript("arguments[0].style.border='3px solid red'", row);
-	}
-
 }

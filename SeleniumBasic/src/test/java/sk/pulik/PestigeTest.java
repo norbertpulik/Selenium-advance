@@ -10,19 +10,9 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class PestigeTest {
-
-	private WebDriver driver;
-
-	@Before
-
-	public void setUp() {
-
-		System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver");
-		driver = new FirefoxDriver();
-		driver.get("http://localhost:8888/prestige.php");
-	}
-
-	@Test
+	
+	WebDriver driver = new FirefoxDriver();
+	
 
 	public void prestige() {
 		driver.findElement(By.cssSelector("div.hat img")).click();
