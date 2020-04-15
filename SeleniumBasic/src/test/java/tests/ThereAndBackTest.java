@@ -1,4 +1,4 @@
-package sk.pulik;
+package tests;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -6,24 +6,23 @@ import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
-public class ThereAndBackTest {
+import base.TestBase;
 
-	WebDriver driver;
+public class ThereAndBackTest extends TestBase {
+
 	JavascriptExecutor js;
 
 	@Before
 
 	public void setUp() {
 
-		System.setProperty("webdriver.gecko.driver", "src/main/resources/geckodriver");
-		driver = new FirefoxDriver();
-		driver.get("http://localhost:8888/tabulka.php");
-		JavascriptExecutor js = (JavascriptExecutor) driver;
+		JavascriptExecutor js = (JavascriptExecutor) getDriver();
 	}
 
 	@Test
 
 	public void testScroll() {
+		getDriver().get(BASE_URL + "tabulka.php");
 
 		for (int i = 0; i < 4; i++) {
 			js.executeScript("window.scrollBy(0,200)");
