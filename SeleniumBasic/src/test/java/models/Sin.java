@@ -9,14 +9,14 @@ public class Sin {
 	private String title;
 	private String author;
 	private String message;
-	private List <SinType> tags;
-
-	
+	private List<SinType> tags;
+	private boolean forgiven;
 
 	public Sin(String title, String author, String message) {
 		this.setTitle(title);
 		this.setAuthor(author);
 		this.setMessage(message);
+		this.forgiven = false;
 	}
 
 	public String getTitle() {
@@ -31,8 +31,8 @@ public class Sin {
 		return author;
 	}
 
-	public void setAuthor(String author) {
-		this.author = author;
+	public boolean isForgiven() {
+		return forgiven;
 	}
 
 	public String getMessage() {
@@ -42,6 +42,7 @@ public class Sin {
 	public void setMessage(String message) {
 		this.message = message;
 	}
+
 	public List<SinType> getTags() {
 		return tags;
 	}
@@ -49,5 +50,14 @@ public class Sin {
 	public void setTags(List<SinType> tags) {
 		this.tags = tags;
 	}
+
+	public void setAuthor(String author) {
+		this.author = author;
+	}
+
+	public void setForgiven(boolean forgiven) {
+		this.forgiven = forgiven;
+	}
+	
 
 }
