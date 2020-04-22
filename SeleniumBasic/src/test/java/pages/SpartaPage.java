@@ -35,18 +35,16 @@ public class SpartaPage {
 	}
 
 	public void forgiveSin(Sin evaSpieva) {
-		// najst articke a button
-		WebElement article = getMainSinElement(evaSpieva);
-
-		// kliknut na button
-		
-		article.findElement(By.cssSelector("button")).click();
-		// potvrdit odal
-		
-		new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(By.id("confirm")));
-		driver.findElement(By.id("confirm")).click();
-		
-		evaSpieva.setForgiven(true);
-	}
+        //1.najst article a button
+        WebElement article = getMainSinElement(evaSpieva);
+        //2.chcem kliknut na button
+        article.findElement(By.cssSelector("button")).click();
+        //3.potvrdit modal
+        new WebDriverWait(driver, 10)
+                .until(ExpectedConditions.elementToBeClickable(By.id("confirm")));
+        driver.findElement(By.id("confirm")).click();
+        //nastavit hriechu forgiven -> true
+        evaSpieva.setForgiven(true);
+    }
 
 }

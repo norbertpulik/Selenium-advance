@@ -24,7 +24,7 @@ public class TestBase {
 
 	}
 
-	public WebDriver getDriver() {
+	protected WebDriver getDriver() {
 		return WebDriverSingelton.getWebDriverInstance();
 
 	}
